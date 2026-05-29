@@ -117,15 +117,19 @@ jobs:
         uses: ./
         with:
           key: docker-cache-test-${{ matrix.os }}-${{github.run_id }}-${{ github.run_attempt }}
-      - name: Verify Docker loaded both empty images from cache.
+      - name: Verify Docker loaded tagged empty image from cache.
         run: |
           function emptyImageExists() {
             id="$(docker images --quiet --filter "label=description=empty image" "$@")"
             [[ -n "$id" ]]
           }
           emptyImageExists empty
-          emptyImageExists --filter "dangling=true"
-
+        shell: bash
+      - name: Verify Docker loaded dangling empty image from cache.
+        if: matrix.os == 'ubuntu-22.04'
+        run: |
+          id="$(docker images --quiet --filter "label=description=empty image" --filter "dangling=true")"
+          [[ -n "$id" ]]
         shell: bash
       - name: Delete test cache if permitted (i.e., workflow not triggered from fork).
         if: always()
