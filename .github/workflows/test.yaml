@@ -79,7 +79,7 @@ jobs:
       matrix:
         os:
           - ubuntu-22.04
-          - windows-2022
+          - windows-2025
     runs-on: ${{ matrix.os }}
     steps:
       - name: Check out repository.
@@ -106,7 +106,7 @@ jobs:
       matrix:
         os:
           - ubuntu-22.04
-          - windows-2022
+          - windows-2025
     runs-on: ${{ matrix.os }}
     permissions:
       actions: write # for cache deletion
