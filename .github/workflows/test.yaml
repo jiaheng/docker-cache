@@ -79,6 +79,7 @@ jobs:
       matrix:
         os:
           - ubuntu-22.04
+          - windows-2025
           - windows-latest
     runs-on: ${{ matrix.os }}
     steps:
@@ -106,6 +107,7 @@ jobs:
       matrix:
         os:
           - ubuntu-22.04
+          - windows-2025
           - windows-latest
     runs-on: ${{ matrix.os }}
     permissions:
