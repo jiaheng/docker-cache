@@ -2256,7 +2256,7 @@ __metadata:
     "@yarnpkg/sdks": "npm:3.1.0"
     eslint: "npm:8.57.0"
     eslint-config-prettier: "npm:9.1.0"
-    fast-check: "npm:3.23.2"
+    fast-check: "npm:4.8.0"
     jest: "npm:29.7.0"
     jest-junit: "npm:16.0.0"
     jest-mock: "npm:29.7.0"
@@ -2559,7 +2559,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-check@npm:3.23.2, fast-check@npm:^3.0.0":
+"fast-check@npm:4.8.0":
+  version: 4.8.0
+  resolution: "fast-check@npm:4.8.0"
+  dependencies:
+    pure-rand: "npm:^8.0.0"
+  checksum: 10c0/f72556a29db4ff386a8b6e50d420b06c7e5eaafff7db5560a99136c57d8d4777998155eb02d1bbeff396f575cc0b1442c8a1c4ddb798c4a919b542de1a1904ff
+  languageName: node
+  linkType: hard
+
+"fast-check@npm:^3.0.0":
   version: 3.23.2
   resolution: "fast-check@npm:3.23.2"
   dependencies:
@@ -4467,6 +4476,13 @@ __metadata:
   version: 6.1.0
   resolution: "pure-rand@npm:6.1.0"
   checksum: 10c0/1abe217897bf74dcb3a0c9aba3555fe975023147b48db540aa2faf507aee91c03bf54f6aef0eb2bf59cc259a16d06b28eca37f0dc426d94f4692aeff02fb0e65
+  languageName: node
+  linkType: hard
+
+"pure-rand@npm:^8.0.0":
+  version: 8.4.0
+  resolution: "pure-rand@npm:8.4.0"
+  checksum: 10c0/6414bbc1c6f45fb774173431c7205e79783b77cfae0e2145e741b6999363554dbd2f4210d2a5bc08683e0b2f6823198c9308766b1d0911e1dccd7beb8842f860
   languageName: node
   linkType: hard
 
