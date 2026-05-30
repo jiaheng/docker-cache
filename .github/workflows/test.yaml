@@ -10,7 +10,7 @@ permissions: {}
 jobs:
   pre-commit:
     name: Run Pre-commit Hooks
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     permissions:
       checks: write # https://github.com/EnricoMi/publish-unit-test-result-action#permissions
       contents: write # for pre-commit-action
@@ -148,7 +148,7 @@ jobs:
       - pre-commit
       - save-cache
       - restore-cache
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - name: Send Slack notification with workflow result.
         uses: ScribeMD/slack-templates@bea126c3915616204196f29d27d6ab9526d61a25 # 0.6.37
