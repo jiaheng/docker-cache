@@ -40,7 +40,7 @@ repos:
       - id: yarn-build
       - id: yarn-test
       - id: megalinter-incremental
-        args: &megalinter-args [--flavor, javascript, --release, v7.7.0]
+        args: &megalinter-args [--flavor, javascript, --release, v9.4.0]
       - id: megalinter-full
         args: *megalinter-args
 
