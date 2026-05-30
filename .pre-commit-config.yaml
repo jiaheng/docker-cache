@@ -89,7 +89,7 @@ repos:
 
   ## Polyglot
   - repo: https://github.com/pivotal/LicenseFinder
-    rev: v7.1.0
+    rev: v7.2.1
     hooks:
       - id: license-finder
 
