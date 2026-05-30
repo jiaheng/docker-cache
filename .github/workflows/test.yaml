@@ -118,30 +118,28 @@ jobs:
       - name: Load Docker images.
         uses: ./
         with:
-          key: docker-cache-test-${{ matrix.os }}-${{github.run_id }}-${{ github.run_attempt }}
+          key: docker-cache-test-${{ matrix.os }}-${{ github.run_id }}-${{ github.run_attempt }}
       - name: Verify Docker loaded cached empty image.
         run: |
-          id="$(docker images --quiet --filter "label=description=empty image" empty)"
-          [[ -n "$id" ]]
+          id="$(docker images --quiet --filter 'reference=empty')"
+          [[ -n "$id" ]] || { echo 'Image "empty" not found'; exit 1; }
         shell: bash
       - name: Delete test cache if permitted (i.e., workflow not triggered from fork).
         if: always()
-        run: >
-          curl
-          --fail-with-body
-          --silent
-          --show-error
-          --request DELETE
-          --header 'Accept: application/vnd.github.v3+json'
-          --header 'Authorization: Bearer ${{ github.token }}'
-          "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/actions/caches?key=docker-cache-test-${{
-            matrix.os
-          }}-${{
-            github.run_id
-          }}-${{
-            github.run_attempt
-          }}&ref=$GITHUB_REF" ||
-          (( $? == 22 ))
+        run: |
+          key='docker-cache-test-${{ matrix.os }}-${{ github.run_id }}-${{ github.run_attempt }}'
+          url="$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/actions/caches?key=$key"
+          echo "Deleting cache key: $key"
+          echo "DELETE $url"
+          curl \
+            --fail-with-body \
+            --silent \
+            --show-error \
+            --request DELETE \
+            --header 'Accept: application/vnd.github.v3+json' \
+            --header 'Authorization: Bearer ${{ github.token }}' \
+            "$url" \
+          || echo "Cache not found (non-fatal)."
         shell: bash
   notify:
     name: Notify
