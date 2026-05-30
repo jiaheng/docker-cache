@@ -79,6 +79,7 @@ jobs:
       matrix:
         os:
           - ubuntu-22.04
+          - ubuntu-24.04
           - windows-2025
           - windows-latest
     runs-on: ${{ matrix.os }}
@@ -107,6 +108,7 @@ jobs:
       matrix:
         os:
           - ubuntu-22.04
+          - ubuntu-24.04
           - windows-2025
           - windows-latest
     runs-on: ${{ matrix.os }}
