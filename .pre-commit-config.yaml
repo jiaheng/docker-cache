@@ -101,7 +101,7 @@ repos:
 
   ## Git
   - repo: https://github.com/commitizen-tools/commitizen
-    rev: v3.18.4 # Keep in sync with pyproject.toml.
+    rev: v4.16.3 # Keep in sync with pyproject.toml.
     hooks:
       - id: commitizen
       - id: commitizen-branch
