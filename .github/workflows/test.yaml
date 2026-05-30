@@ -85,6 +85,14 @@ jobs:
     steps:
       - name: Check out repository.
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - name: Start Docker on Windows.
+        if: runner.os == 'Windows'
+        run: |
+          $service = Get-Service -Name docker -ErrorAction SilentlyContinue
+          if ($null -ne $service -and $service.Status -ne 'Running') {
+            Start-Service docker
+          }
+        shell: powershell
       - name: Save Docker images.
         uses: ./
         with:
@@ -115,6 +123,14 @@ jobs:
     steps:
       - name: Check out repository.
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - name: Start Docker on Windows.
+        if: runner.os == 'Windows'
+        run: |
+          $service = Get-Service -Name docker -ErrorAction SilentlyContinue
+          if ($null -ne $service -and $service.Status -ne 'Running') {
+            Start-Service docker
+          }
+        shell: powershell
       - name: Load Docker images.
         uses: ./
         with:
