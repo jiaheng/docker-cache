@@ -16,7 +16,7 @@
     "test": "yarn run tsc && yarn run jest:esm"
   },
   "engines": {
-    "node": "20.11.1",
+    "node": "24.16.0",
     "yarn": "4.15.0"
   },
   "packageManager": "yarn@4.15.0",
